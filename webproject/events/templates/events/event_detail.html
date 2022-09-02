@@ -1,0 +1,17 @@
+{% extends 'main/layout.html' %}
+
+{% block title %}
+    {{ event.title }}
+{% endblock %}
+
+
+{% block content %}
+    <div class="features">
+        <h1>{{ event.title }}</h1>
+        <p>{{ event.full_text }}</p>
+        <p>{{ event.date }}</p>
+        <a href="{% url 'event-update' event.id %}" class="btn btn-warning">Изменить</a>
+        <a href="{% url 'event-delete' event.id %}" class="btn btn-warning">Удалить</a>
+        <a href="{% url 'events_home' %}" class="btn btn-warning">Назад к событиям</a>
+    </div>
+{% endblock %}

@@ -1,0 +1,26 @@
+{% extends 'main/layout.html' %}
+
+{% block title %}
+    Значимые события
+{% endblock %}
+
+
+{% block content %}
+    <div class="features">
+        <h1>Значимые события</h1>
+        {% if events %}
+            {% for i in events %}
+                <div class="alert alert-warning">
+                    <h3>{{ i.title }}</h3>
+                    <p>{{ i.full_text }}</p>
+                    <p>{{ i.date }}</p>
+                    <a href="{% url 'events-detail' i.id %}" class="btn btn-warning">Читать полностью</a>
+                </div>
+            {% endfor %}
+        {% else %}
+            <p>Нет событий</p>
+        {% endif %}
+
+
+    </div>
+{% endblock %}
